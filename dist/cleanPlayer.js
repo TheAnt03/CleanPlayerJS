@@ -113,7 +113,7 @@ class ControlBar {
         this.controlBar = `
         <div class = "controls">
             <div class = "top">
-                <div class = "progress-bar">
+                <div class = "progress-bar" style="height: ${this.config.progressBarHeight};">
                     <div class = "buffered"></div>
                     <div class = "progress" style="background-color: ${this.config.progressBarColor};"></div>
                 </div>
@@ -610,6 +610,7 @@ const defaults = {
     playbackBarHeight: "8px",
     controlBarColor: "rgba(0, 0, 0, 0.5)",
     progressBarColor: "rgba(255, 255, 255, 0.5)",
+    progressBarHeight: "5px",
     left: [
         "playButton",
         "volume",

@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
         src: 'drone_1080p.mp4',
         //Youtubes Red color
         progressBarColor: "rgba(255, 0, 0, 0.5)",
+        progressBarHeight: "5px",
+        buttonSize: "18px",
     });
 
     player.initPlayer();

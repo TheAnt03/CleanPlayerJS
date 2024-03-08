@@ -9,7 +9,7 @@ class ControlBar {
         this.controlBar = `
         <div class = "controls">
             <div class = "top">
-                <div class = "progress-bar">
+                <div class = "progress-bar" style="height: ${this.config.progressBarHeight};">
                     <div class = "buffered"></div>
                     <div class = "progress" style="background-color: ${this.config.progressBarColor};"></div>
                 </div>
