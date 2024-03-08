@@ -1,8 +1,9 @@
 import { VideoHTML } from './videoHTML.js';
+import defaults from './defaults.js';
 
 class VideoPlayer {
   constructor(playerElement, config) {
-    this.config = config;
+    this.config = { ...defaults, ...config };
     this.playerElement = playerElement;
   }
 

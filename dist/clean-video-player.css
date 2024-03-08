@@ -1,0 +1,220 @@
+@keyframes showAnimation {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100px;
+    }
+}
+
+@keyframes hideAnimation {
+    0% {
+        width: 100px;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+.player-container {
+    position: relative;
+    width: 1000px;
+    height: 562.5px;
+}
+
+.clean-player {
+    position: relative;
+    width: 100%;
+    height: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.controls-inner {
+    padding: 10px 5px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    justify-content: space-between;
+}
+
+.controls-inner * {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    align-items: center;
+}
+
+.time {
+    margin: 0 5px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+
+.left * {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.right * {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.toggle-play {
+    color: white;
+    cursor: pointer;
+    align-self: center;
+    height: 100%;
+
+}
+
+.toggle-play i {
+    align-self: center;
+    height: 100%;
+}
+
+
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 3px;
+    background-color: rgb(66, 66, 66);
+    cursor: pointer;
+}
+
+.progress {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background-color: white;
+}
+
+.volume-progress {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+.volume-bar {
+    width: 100px;
+    height: 100%;
+    height: 5px;
+    background-color: rgb(121, 121, 121);
+}
+
+.show {
+    animation: showAnimation 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.hide {
+    animation: hideAnimation 0.5s;
+    animation-fill-mode: forwards;
+    
+}
+
+.buffered {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(127, 127, 127, 0.991);
+
+}
+
+.progress-bar:hover {
+    height: 8px;
+}
+
+.settings-popup {
+    position: absolute;
+    width: 20%;
+    bottom: 50px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.604);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.settings-popup-content {
+    width:100%;
+}
+
+.setting {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.232);
+}
+
+.setting input {
+    margin-top: 5px;
+    width: 50%;
+}
+
+.setting select {
+    margin-top: 5px;
+    width: 50%;
+    color: black;
+}
+
+.settings-label:first-child {
+    border-top: none;
+}
+
+.setting > * {
+    color: white;
+}
+
+.settings-label {
+    border-top: 1px solid rgba(255, 255, 255, 0.232);
+    color: white;
+    padding: 5px 10px;
+}
+
+
+.playback-speed-progress {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+.playback-speed-bar {
+    width: 100px;
+    height: 100%;
+    height: 5px;
+    margin-top: 5px;
+    background-color: rgb(121, 121, 121);
+}
+
+.playback-speed-reset {
+    cursor: pointer;
+}
+
+.playback-speed-info {
+    margin-top: 5px;
+}

@@ -7,7 +7,7 @@ class SettingsPopup {
     this.config = config;
     this.video = video;
     this.settingsPopupHTML = `
-        <div class = "settings-popup" id = "settings-popup">
+        <div class = "settings-popup" style = "background-color: ${this.config.controlBarColor};">
             <div class = "settings-popup-content">
             </div>
         </div>

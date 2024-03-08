@@ -11,10 +11,10 @@ class ControlBar {
             <div class = "top">
                 <div class = "progress-bar">
                     <div class = "buffered"></div>
-                    <div class = "progress"></div>
+                    <div class = "progress" style="background-color: ${this.config.progressBarColor};"></div>
                 </div>
             </div>
-            <div class = "controls-inner">
+            <div class = "controls-inner" style="background-color: ${this.config.controlBarColor};">
                 <div class = "left">
                 </div>
                 <div class = "center"></div>
