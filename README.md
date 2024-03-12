@@ -1,4 +1,4 @@
-<h1>THIS IS A WORK IN PROGRESS!! README & CODE IS STILL UNDER CONSTRUCTION.</h1>
+<h1>THIS IS A WORK IN PROGRESS!!</h1>
 <h2>Clean Player</h2>
 <article>
   <p>I made this library to make it easy to set up a custom video player. You can customize almost anything to your liking.</p>
@@ -32,9 +32,4 @@
   </blockquote>
 
   <p>You can view available config values in src/defaults.js</p>
-</article>
-
-<h2>Set Up Dev Environment</h2>
-<article>
-  <p></p>
 </article>
