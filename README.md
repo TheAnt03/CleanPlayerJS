@@ -9,7 +9,7 @@
 <article>
   <h4>Getting The File</h4>
   <p>Download build from /dist/cleanPlayer.js and include it in your JS, or install it with npm install cleanplayerjs</p>
-  <p>Don't forget to include bootstrap icons!</p>
+  <p>Don't forget to include clean-video-player.css and bootstrap icons!</p>
   <br/>
   <h4>Using the library</h4>
   <p>Set up your HTML to include a starting div</p>
