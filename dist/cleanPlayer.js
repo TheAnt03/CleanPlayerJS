@@ -138,6 +138,7 @@ class ControlBar {
         this.top = this.parent.querySelector('.top');
         
         this.fullScreenButton = this.parent.querySelector('.full-screen');
+        this.settingsButton = this.parent.querySelector('.settings');
 
     }
 
@@ -292,13 +293,46 @@ class ControlBar {
         }
     }
 
+    initHideControls(controls) {
+        this.video.addEventListener('mouseenter', () => {
+            controls.classList.add('showControls');
+        });
+
+        controls.addEventListener('mouseenter', () => {
+            controls.classList.add('showControls');
+            this.onControls = true;
+        });
+
+        controls.addEventListener('mouseleave', () => {
+            this.onControls = false;
+            controls.classList.remove('showControls');
+        });
+
+        this.video.addEventListener('mouseleave', () => {
+            if(this.onControls === false) {
+                controls.classList.remove('showControls');
+            }
+        });
+    }
+
     initControls() {
         const controls = this.parent.querySelector('.controls');
         const volumeElement = this.parent.querySelector('.volume-bar');
         const volumeBar = new _volumeBar_js__WEBPACK_IMPORTED_MODULE_0__["default"](volumeElement, this.video, this.config);
         const settingsPopup = new _settingsPopup_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.parent, this.video, this.config);
-
         const volume = this.parent.querySelector('.volume');
+        volumeElement.classList.add('hide');
+        
+        if(this.config.autoHideControls) {
+            this.initHideControls(controls);
+        } else {
+            controls.classList.add('showControls');
+        }
+
+        //update buffered
+        this.video.addEventListener('timeupdate', () => {
+            this.setBuffered(controls, 0);
+        });
 
         this.playButton.addEventListener('click', () => {
             this.playVideo();
@@ -319,31 +353,6 @@ class ControlBar {
             this.totalTime = time;
         });
 
-        //update buffered
-        this.video.addEventListener('timeupdate', () => {
-            this.setBuffered(controls, 0);
-        });
-
-        this.video.addEventListener('mouseenter', () => {
-            controls.classList.add('showControls');
-        });
-
-        controls.addEventListener('mouseenter', () => {
-            controls.classList.add('showControls');
-            this.onControls = true;
-        });
-
-        controls.addEventListener('mouseleave', () => {
-            this.onControls = false;
-            controls.classList.remove('showControls');
-        });
-
-        this.video.addEventListener('mouseleave', () => {
-            if(this.onControls === false) {
-                controls.classList.remove('showControls');
-            }
-        });
-
         this.progressBar.addEventListener('click', (e) => {
             const pos = (e.pageX - (this.top.offsetLeft + this.top.offsetParent.offsetLeft)) / this.top.offsetWidth;
             this.video.currentTime = pos * this.totalTime;
@@ -352,6 +361,10 @@ class ControlBar {
 
         this.fullScreenButton.addEventListener('click', () => {
             this.toggleFullScreen();
+        });
+
+        this.settingsButton.addEventListener('click', () => {
+            settingsPopup.togglePopup();
         });
 
         volume.addEventListener('mouseenter', () => {
@@ -457,9 +470,11 @@ class SettingsPopup {
     
     top.insertAdjacentHTML('beforeend', this.settingsPopupHTML);
 
-    const settingsPopup = top.querySelector('.settings-popup-content');
-    const playbackSpeed = new _playbackSpeedBar_js__WEBPACK_IMPORTED_MODULE_0__["default"](settingsPopup, this.video, this.config);
-    const resolution = new _resolution_js__WEBPACK_IMPORTED_MODULE_1__["default"](settingsPopup, this.video, this.config);
+    this.settingsPopup = top.querySelector('.settings-popup-content');
+    this.settingsPopup.classList.add('hidden');
+
+    const playbackSpeed = new _playbackSpeedBar_js__WEBPACK_IMPORTED_MODULE_0__["default"](this.settingsPopup, this.video, this.config);
+    const resolution = new _resolution_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.settingsPopup, this.video, this.config);
   }
 
   togglePopup() {
@@ -628,6 +643,7 @@ const defaults = {
     controlBarColor: "rgba(0, 0, 0, 0.5)",
     progressBarColor: "rgba(255, 255, 255, 0.5)",
     progressBarHeight: "5px",
+    autoHideControls: true,
     left: [
         "playButton",
         "volume",

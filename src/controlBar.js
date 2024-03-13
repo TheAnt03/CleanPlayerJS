@@ -34,6 +34,7 @@ class ControlBar {
         this.top = this.parent.querySelector('.top');
         
         this.fullScreenButton = this.parent.querySelector('.full-screen');
+        this.settingsButton = this.parent.querySelector('.settings');
 
     }
 
@@ -216,9 +217,12 @@ class ControlBar {
         const volumeBar = new VolumeBar(volumeElement, this.video, this.config);
         const settingsPopup = new SettingsPopup(this.parent, this.video, this.config);
         const volume = this.parent.querySelector('.volume');
+        volumeElement.classList.add('hide');
         
-        if(this.config.autoHideControls === true) {
+        if(this.config.autoHideControls) {
             this.initHideControls(controls);
+        } else {
+            controls.classList.add('showControls');
         }
 
         //update buffered
@@ -253,6 +257,10 @@ class ControlBar {
 
         this.fullScreenButton.addEventListener('click', () => {
             this.toggleFullScreen();
+        });
+
+        this.settingsButton.addEventListener('click', () => {
+            settingsPopup.togglePopup();
         });
 
         volume.addEventListener('mouseenter', () => {

@@ -17,9 +17,11 @@ class SettingsPopup {
     
     top.insertAdjacentHTML('beforeend', this.settingsPopupHTML);
 
-    const settingsPopup = top.querySelector('.settings-popup-content');
-    const playbackSpeed = new PlaybackSpeed(settingsPopup, this.video, this.config);
-    const resolution = new Resolution(settingsPopup, this.video, this.config);
+    this.settingsPopup = top.querySelector('.settings-popup-content');
+    this.settingsPopup.classList.add('hidden');
+
+    const playbackSpeed = new PlaybackSpeed(this.settingsPopup, this.video, this.config);
+    const resolution = new Resolution(this.settingsPopup, this.video, this.config);
   }
 
   togglePopup() {
