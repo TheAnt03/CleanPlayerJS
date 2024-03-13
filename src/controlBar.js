@@ -5,6 +5,7 @@ class ControlBar {
     constructor(parent, config) {
         this.parent = parent;
         this.config = config;
+        this.onControls = false;
 
         this.controlBar = `
         <div class = "controls">
@@ -180,10 +181,6 @@ class ControlBar {
     }
     
     toggleFullScreen() {
-       /* const container = this.playerElement.querySelector('.player-container');
-        container.position = 'absolute';
-        container.width = '100%';
-        container.height = '100%';*/
         if (!document.fullscreenElement) {
             this.goFullScreen();
         } else {
@@ -191,13 +188,43 @@ class ControlBar {
         }
     }
 
+    initHideControls(controls) {
+        this.video.addEventListener('mouseenter', () => {
+            controls.classList.add('showControls');
+        });
+
+        controls.addEventListener('mouseenter', () => {
+            controls.classList.add('showControls');
+            this.onControls = true;
+        });
+
+        controls.addEventListener('mouseleave', () => {
+            this.onControls = false;
+            controls.classList.remove('showControls');
+        });
+
+        this.video.addEventListener('mouseleave', () => {
+            if(this.onControls === false) {
+                controls.classList.remove('showControls');
+            }
+        });
+    }
+
     initControls() {
         const controls = this.parent.querySelector('.controls');
         const volumeElement = this.parent.querySelector('.volume-bar');
         const volumeBar = new VolumeBar(volumeElement, this.video, this.config);
         const settingsPopup = new SettingsPopup(this.parent, this.video, this.config);
-
         const volume = this.parent.querySelector('.volume');
+        
+        if(this.config.autoHideControls === true) {
+            this.initHideControls(controls);
+        }
+
+        //update buffered
+        this.video.addEventListener('timeupdate', () => {
+            this.setBuffered(controls, 0);
+        });
 
         this.playButton.addEventListener('click', () => {
             this.playVideo();
@@ -216,11 +243,6 @@ class ControlBar {
 
             controls.querySelector('.total-time').innerHTML = `${minutesStr}:${secondsStr}`;
             this.totalTime = time;
-        });
-
-        //update buffered
-        this.video.addEventListener('timeupdate', () => {
-            this.setBuffered(controls, 0);
         });
 
         this.progressBar.addEventListener('click', (e) => {

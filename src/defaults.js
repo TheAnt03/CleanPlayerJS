@@ -6,6 +6,7 @@ const defaults = {
     controlBarColor: "rgba(0, 0, 0, 0.5)",
     progressBarColor: "rgba(255, 255, 255, 0.5)",
     progressBarHeight: "5px",
+    autoHideControls: true,
     left: [
         "playButton",
         "volume",

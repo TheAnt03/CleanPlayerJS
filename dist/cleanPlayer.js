@@ -109,6 +109,7 @@ class ControlBar {
     constructor(parent, config) {
         this.parent = parent;
         this.config = config;
+        this.onControls = false;
 
         this.controlBar = `
         <div class = "controls">
@@ -284,10 +285,6 @@ class ControlBar {
     }
     
     toggleFullScreen() {
-       /* const container = this.playerElement.querySelector('.player-container');
-        container.position = 'absolute';
-        container.width = '100%';
-        container.height = '100%';*/
         if (!document.fullscreenElement) {
             this.goFullScreen();
         } else {
@@ -325,6 +322,26 @@ class ControlBar {
         //update buffered
         this.video.addEventListener('timeupdate', () => {
             this.setBuffered(controls, 0);
+        });
+
+        this.video.addEventListener('mouseenter', () => {
+            controls.classList.add('showControls');
+        });
+
+        controls.addEventListener('mouseenter', () => {
+            controls.classList.add('showControls');
+            this.onControls = true;
+        });
+
+        controls.addEventListener('mouseleave', () => {
+            this.onControls = false;
+            controls.classList.remove('showControls');
+        });
+
+        this.video.addEventListener('mouseleave', () => {
+            if(this.onControls === false) {
+                controls.classList.remove('showControls');
+            }
         });
 
         this.progressBar.addEventListener('click', (e) => {

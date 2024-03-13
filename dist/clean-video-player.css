@@ -18,6 +18,26 @@
     }
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 .player-container {
     position: relative;
     width: 1000px;
@@ -36,6 +56,13 @@
     bottom: 0;
     width: 100%;
     box-sizing: border-box;
+    animation: fadeOut 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.showControls {
+    animation: fadeIn 0.5s;
+    animation-fill-mode: forwards;
 }
 
 .controls-inner {
