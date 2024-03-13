@@ -8,8 +8,8 @@
 <h2>Set Up</h2>
 <article>
   <h4>Getting The File</h4>
-  <p>Download build from /dist/cleanPlayer.js and include it in your JS</p>
-  <p>I will be setting up npm / native react support soon</p>
+  <p>Download build from /dist/cleanPlayer.js and include it in your JS, or install it with npm install cleanplayerjs</p>
+  <p>Don't forget to include bootstrap icons!</p>
   <br/>
   <h4>Using the library</h4>
   <p>Set up your HTML to include a starting div</p>
