@@ -1,0 +1,23 @@
+{
+  "name": "cleanplayerjs",
+  "version": "0.1.0",
+  "description": "CleanPlayerJS is an easy to use, lightweight and customizable video player that allows you to customize your own video player for your website",
+  "main": "cleanPlayer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antmar03/CleanPlayerJS.git"
+  },
+  "keywords": [
+    "video",
+    "player"
+  ],
+  "author": "antmar03",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/antmar03/CleanPlayerJS/issues"
+  },
+  "homepage": "https://github.com/antmar03/CleanPlayerJS#readme"
+}
