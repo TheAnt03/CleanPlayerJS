@@ -42,7 +42,7 @@ class VideoHTML {
         const video = this.playerElement.querySelector('.clean-player');
         video.controls = false;
         
-        playerElement.addEventListener('dblclick', () => {
+        this.playerElement.addEventListener('dblclick', () => {
             this.controlBar.toggleFullScreen();
         });
 
