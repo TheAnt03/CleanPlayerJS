@@ -4,7 +4,7 @@ const playerElement = document.getElementById('player');
 document.addEventListener('DOMContentLoaded', () => {
     var player = new VideoPlayer(playerElement, {
         src: 'drone_1080p.mp4',
-        //Youtubes Red color
+        controlBarColor: "rgba(0, 0, 0, 0.2)",
         progressBarColor: "rgba(255, 0, 0, 0.5)",
         progressBarHeight: "5px",
         buttonSize: "18px",

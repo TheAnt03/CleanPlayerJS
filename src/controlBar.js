@@ -1,3 +1,8 @@
+/*
+// (c) 2024 Anthony Marcellino
+// This code is licensed under Apache 2.0 License (see LICENSE for details)
+*/
+
 import VolumeBar from './volumeBar.js';
 import SettingsPopup from './settingsPopup.js';
 
