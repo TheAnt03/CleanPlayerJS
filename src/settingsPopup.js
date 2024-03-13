@@ -42,7 +42,6 @@ class SettingsPopup {
 
   togglePopup() {
     this.settingsPopup.classList.toggle('hidden');
-    this.settingsPopupContent.classList.toggle('hidden');
   }
 }
 
