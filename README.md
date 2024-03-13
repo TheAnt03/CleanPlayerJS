@@ -15,6 +15,8 @@
   <p>Set up your HTML to include a starting div</p>
   
   <p>Attached is a sample JS to get you started. This sample is similar to youtubes video player</p>
+
+  <p>Also don't forget to include Bootstrap Icons in your project</p>
   <blockquote>
     
     const playerElement = document.getElementById('player');
