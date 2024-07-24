@@ -1,5 +1,4 @@
-<h1>THIS IS A WORK IN PROGRESS!!</h1>
-<h2>Clean Player</h2>
+<h1>Clean Player</h1>
 <article>
   <p>I made this library to make it easy to set up a custom video player. You can customize almost anything to your liking.</p>
   <p>You can set almost anything involving the style and layout</p>
